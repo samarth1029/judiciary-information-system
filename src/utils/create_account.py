@@ -188,7 +188,7 @@ class Register:
             headers = {"Content-type": "application/json"}
             _dict = {
                 "query": f'''
-                            INSERT `sandbox-381608.jis.registered_users`
+                            INSERT INTO `sandbox-381608.jis.registered_users`
                             VALUES( 
                             "{self.var_email.get()}",
                             "{self.var_pass.get()}",
