@@ -1,2 +1,6 @@
 requests
 Pillow
+pandas
+openpyxl
+xlsxwriter
+tkcalendar
