@@ -231,8 +231,7 @@ class CaseQueries:
     def query_pending_cases(self):
         url = "https://bigquery-cloudbuild-f7q24pru5q-ey.a.run.app/bigquery_operation_results"
         headers = {"Content-type": "application/json"}
-        _dict = {
-            "query": f'''
+        _dict = {"query": '''
                             SELECT
                                 CIN,
                                 start_date,
@@ -246,9 +245,8 @@ class CaseQueries:
                              `sandbox-381608.jis.cases_inventory`
                             WHERE end_date IS NULL
                             ORDER BY CIN;
-                        ''',
-            "gbq_table_id": "sandbox-381608.jis.cases_inventory",
-        }
+                        ''', "gbq_table_id": "sandbox-381608.jis.cases_inventory"}
+
         _response = requests.post(url, headers=headers, json=_dict)
         _result = _response.json()
         df = pd.DataFrame.from_records(_result.get("query_results").get("results"))
