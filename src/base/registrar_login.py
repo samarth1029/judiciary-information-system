@@ -3,7 +3,7 @@ from tkinter import ttk
 from PIL import Image, ImageTk
 from tkinter import messagebox
 import requests
-from src.base.payment_window import PaymentWindow
+from src.base.registrar_functionalities import Registrar
 
 
 class RegistrarLoginWindow:
@@ -99,7 +99,7 @@ class RegistrarLoginWindow:
                 open_main = messagebox.askyesno("Query", "Access only admin?")
                 if open_main > 0:
                     self.new_window = Toplevel(self.root)
-                    self.app = RegistrarLoginWindow(self.new_window)
+                    self.app = Registrar(self.new_window)
                 elif not open_main:
                     return
             else:
