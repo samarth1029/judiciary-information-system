@@ -3,9 +3,10 @@ from tkinter import ttk
 from PIL import Image, ImageTk
 from tkinter import messagebox
 import requests
+from src.base.payment_window import PaymentWindow
 
 
-class LoginWindow:
+class LawyerLoginWindow:
     def __init__(self, root):
         self.root = root
         self.root.title("Login")
@@ -98,7 +99,7 @@ class LoginWindow:
                 open_main = messagebox.askyesno("Query", "Access only admin?")
                 if open_main > 0:
                     self.new_window = Toplevel(self.root)
-                    # self.app = Face_Recognition_System(self.new_window)
+                    self.app = PaymentWindow(self.new_window)
                 elif not open_main:
                     return
             else:
@@ -107,5 +108,5 @@ class LoginWindow:
 
 if __name__ == "__main__":
     root = Tk()
-    obj = LoginWindow(root=root)
+    obj = LawyerLoginWindow(root=root)
     root.mainloop()
